@@ -13,6 +13,8 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from parsers.tabirai_parser import parse_tabirai_email
+from parsers.jalan_parser import parse_jalan_email
+
 
 REQUIRED_KEYS = [
     "予約番号",
@@ -43,7 +45,7 @@ def verify_mail(path: Path) -> dict[str, str]:
     if not body.strip():
         return {"error": "mail body is empty"}
 
-    result = parse_tabirai_email(body)
+    result = parse_jalan_email(body)
     missing = [key for key in REQUIRED_KEYS if not result.get(key)]
 
     payload = _summarize(result)

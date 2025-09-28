@@ -15,7 +15,7 @@ def parse_jalan_email(body_text):
     start_match = re.search(r"貸出日時：\s*([\d/年月日\s:]+)", body_text)
     end_match = re.search(r"返却日時：\s*([\d/年月日\s:]+)", body_text)
     shop_match = re.search(r"貸出営業所：\s*(.+?)\s", body_text)
-    class_match = re.search(r"車両クラス：\s*(.+?)\s", body_text)
+    class_match = re.search(r"車両クラス：\s*([^\r\n]+)", body_text)
     number_match = re.search(r"予約番号：\s*(\S+)", body_text)
     y_class_match = re.search(r"\｜([A-Z]+\d*[A-Z]*)クラス\｜", body_text)
     raw_start = start_match.group(1) if start_match else ""
