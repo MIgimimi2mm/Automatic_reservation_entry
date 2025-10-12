@@ -99,7 +99,7 @@ def convert_tabirai_class(reservation_class: str) -> str:
     if any(keyword in target for keyword in ('タンク', 'トール', 'ルーミー')):
         return 'C2T'
     if 'ライズ同クラス' in target:
-        return 'SUV2'
+        return 'SUV'
     if 'ライズ' in target:
         return 'SUV1'
     if 'ヤリスクロス' in target:
